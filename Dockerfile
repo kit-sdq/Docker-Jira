@@ -15,8 +15,8 @@ ENV JIRA_HOME=/var/jira
 # https://confluence.atlassian.com/adminjiraserver/installing-jira-applications-on-linux-from-archive-file-938846844.html
 RUN VERSION=8.1.0 && \
     MYSQL_CONNECTOR_VERSION=5.1.47 && \
-	mkdir $JIRA_INSTALL $JIRA_HOME && \
-	wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-$VERSION.tar.gz -O /tmp/jira.tar.gz && \
+    mkdir $JIRA_INSTALL $JIRA_HOME && \
+    wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-$VERSION.tar.gz -O /tmp/jira.tar.gz && \
     tar -xzf /tmp/jira.tar.gz -C $JIRA_INSTALL --strip 1 && \
     rm /tmp/jira.tar.gz && \
     wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-$MYSQL_CONNECTOR_VERSION.tar.gz -O /tmp/mysql-connector.tar.gz && \
