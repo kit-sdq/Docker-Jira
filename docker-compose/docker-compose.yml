@@ -1,0 +1,38 @@
+version: '2.1'
+
+services:
+
+  jira:
+    image: jira
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - jira_data:/var/jira
+
+  db:
+    image: mysql:5.7
+    restart: always
+    expose:
+      - 3306
+    volumes:
+      - jira_db:/var/lib/mysql
+      - /currentdir/mysql-jira.cnf:/etc/mysql/mysql.conf.d/jira.cnf:ro
+    environment:
+      - MYSQL_ROOT_PASSWORD=changeme
+      - MYSQL_DATABASE=jira
+      - MYSQL_USER=jira
+      - MYSQL_PASSWORD=changeme
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u", "jira", "-pchangeme"]
+      timeout: 20s
+      retries: 10
+
+volumes:
+  jira_data:
+    external: true
+  jira_db:
+    external: true
