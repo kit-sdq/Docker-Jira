@@ -1,5 +1,5 @@
 # Use AdoptOpenJDK because its officially supported by Atlassian
-FROM adoptopenjdk/openjdk8:alpine-jre
+FROM adoptopenjdk/openjdk11:alpine-jre
 
 # Install dependencies
 RUN apk add --no-cache gzip bash fontconfig ttf-dejavu
@@ -13,7 +13,7 @@ ENV JIRA_HOME=/var/jira
 
 # Install JIRA including MySQL connector according to
 # https://confluence.atlassian.com/adminjiraserver/installing-jira-applications-on-linux-from-archive-file-938846844.html
-RUN VERSION=8.1.1 && \
+RUN VERSION=8.2.1 && \
     MYSQL_CONNECTOR_VERSION=5.1.47 && \
     mkdir $JIRA_INSTALL $JIRA_HOME && \
     wget https://www.atlassian.com/software/jira/downloads/binary/atlassian-jira-software-$VERSION.tar.gz -O /tmp/jira.tar.gz && \
