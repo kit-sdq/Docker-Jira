@@ -1,4 +1,4 @@
-# Use AdoptOpenJDK because its officially supported by Atlassian
+# Use AdoptOpenJDK because it is officially supported by Atlassian
 FROM adoptopenjdk/openjdk11:alpine-jre
 
 # Install dependencies
