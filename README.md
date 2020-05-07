@@ -5,6 +5,8 @@
 [![](https://img.shields.io/github/issues/kit-sdq/Docker-Jira.svg)](https://github.com/kit-sdq/Docker-Jira/issues)
 [![](https://img.shields.io/github/license/kit-sdq/Docker-Jira.svg)](https://github.com/kit-sdq/Docker-Jira/blob/master/LICENSE)
 
+**This repository has been deprecated because Atlassian released an [official image](https://hub.docker.com/r/atlassian/jira-software).**
+
 Docker image for [Atlassian JIRA](https://www.atlassian.com/software/jira) that includes a recent [MySQL connector](https://dev.mysql.com/downloads/connector/j/5.1.html) and AdoptOpenJDK 11.
 
 JIRA is running under user `jira` with uid `1432`. The home directory is `/var/jira`.
